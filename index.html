@@ -3,276 +3,271 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi niña 💖</title>
+<title>Para Mi Niña 💖</title>
 
 <style>
-
 body{
     margin:0;
-    font-family:'Segoe UI',sans-serif;
+    font-family:Georgia, serif;
+    background:linear-gradient(135deg,#f8cdda,#f9b6c2);
     overflow-x:hidden;
-    background:linear-gradient(135deg,#ffd6e0,#ffc2d1,#ffb3c6);
-    background-size:400% 400%;
-    animation:fondo 15s ease infinite;
+    color:white;
+    text-align:center;
 }
 
-@keyframes fondo{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-/* INICIO */
+/* PANTALLA INICIAL */
 .inicio{
     position:fixed;
+    top:0;
+    left:0;
     width:100%;
     height:100vh;
+    background:#f8cdda;
     display:flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
-    background:linear-gradient(135deg,#ffccd5,#ffc2d1);
-    z-index:10;
+    z-index:9999;
+}
+
+button{
+    padding:12px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    background:#ff4d6d;
+    color:white;
     cursor:pointer;
-    transition:1s;
-}
-
-.inicio h1{
-    font-size:40px;
-    color:#c9184a;
-    animation:latido 1.5s infinite;
-}
-
-@keyframes latido{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.1);}
-}
-
-.oculto{
-    opacity:0;
-    pointer-events:none;
+    margin-top:20px;
 }
 
 /* CORAZONES */
-.corazon{
+.heart{
     position:fixed;
     top:-10px;
-    color:red;
     animation:caer linear infinite;
 }
 
 @keyframes caer{
-    to{transform:translateY(110vh);}
-}
-
-/* CONTENIDO */
-.contenido{
-    padding:100px 20px;
-    text-align:center;
-}
-
-h2{
-    color:#c9184a;
-    font-size:35px;
+    to{ transform:translateY(100vh); }
 }
 
 /* CONTADOR */
-.contador{
-    margin-top:20px;
+#contador{
+    margin-top:120px;
     font-size:20px;
-    background:rgba(255,255,255,0.4);
-    display:inline-block;
-    padding:20px 30px;
-    border-radius:20px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.3);
     font-weight:bold;
 }
 
-.tiempo{
-    display:block;
-    font-size:24px;
-    margin-top:10px;
-    color:#b5179e;
-    text-shadow:0 0 10px #ff4d6d;
-}
-
-/* CARTA */
-.carta{
+/* TEXTO */
+.contenedor-texto{
     max-width:900px;
     margin:40px auto;
-    padding:30px;
-    background:rgba(255,255,255,0.3);
-    backdrop-filter:blur(10px);
-    border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.2);
-    font-size:18px;
+    padding:20px;
+}
+
+#texto{
+    font-size:22px;
     line-height:1.8;
-    text-align:justify;
-    min-height:300px;
+    white-space:pre-line;
+    border-right:3px solid white;
+    animation:cursor 0.8s infinite;
 }
 
-.cursor{
-    display:inline-block;
-    width:2px;
-    background:#000;
-    animation:blink 1s infinite;
+@keyframes cursor{
+    0%{border-color:transparent;}
+    50%{border-color:white;}
+    100%{border-color:transparent;}
 }
 
-@keyframes blink{
-    0%,50%,100%{opacity:1;}
-    25%,75%{opacity:0;}
-}
-
-.victoria{
-    background:linear-gradient(45deg,#ff4d6d,#ff99ac,#ff4d6d);
-    background-size:200% 200%;
-    -webkit-background-clip:text;
-    color:transparent;
-    animation:brillo 3s linear infinite;
+/* BRILLO */
+.brillo{
     font-weight:bold;
+    animation:brillo 1.5s infinite alternate;
 }
 
 @keyframes brillo{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
+    from{
+        text-shadow:0 0 10px #ff4d6d,
+                    0 0 20px #ff4d6d,
+                    0 0 30px #ff1e4d;
+    }
+    to{
+        text-shadow:0 0 20px #ffffff,
+                    0 0 30px #ff99aa,
+                    0 0 40px #ff4d6d;
+    }
 }
 
-/* GALERÍA */
-.galeria{
-    margin-top:80px;
+/* IMÁGENES INTERCALADAS */
+.galeria-intercalada{
+    width:100%;
+    margin-top:50px;
 }
 
 .imagen{
-    width:300px;
-    height:200px;
-    background:white;
-    margin:40px;
-    border-radius:20px;
-    box-shadow:0 10px 20px rgba(0,0,0,0.3);
-    display:inline-block;
-    overflow:hidden;
+    width:100%;
+    margin:40px 0;
+    display:flex;
 }
 
 .imagen img{
-    width:100%;
-    height:100%;
+    width:1004px;
+    height:668px;
     object-fit:cover;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-.izquierda{ float:left; clear:both; }
-.derecha{ float:right; clear:both; }
+.izquierda{
+    justify-content:flex-start;
+    padding-left:5%;
+}
 
-footer{ clear:both; padding:50px; }
+.derecha{
+    justify-content:flex-end;
+    padding-right:5%;
+}
 
+/* MENSAJE FINAL */
+.mensaje-final{
+    background:#8b0000;
+    padding:40px 20px;
+}
+
+.mensaje-brillo{
+    font-size:24px;
+    font-weight:bold;
+    animation:brillo 1.5s infinite alternate;
+}
+
+footer{
+    background:#5a2a35;
+    padding:20px;
+}
 </style>
 </head>
+
 <body>
 
-<audio id="musica" loop>
-    <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
-<div class="inicio" onclick="entrar()">
-    <h1>💖 Mi niña, feliz San Valentín 💖</h1>
-    <p>Haz clic para ver tu sorpresa</p>
+<div class="inicio" id="pantallaInicio">
+    <h1>❤️ Mi niña, feliz San Valentín ❤️</h1>
+    <button onclick="entrar()">Haz clic para comenzar 💖</button>
 </div>
 
-<div class="contenido">
+<div id="contenido" style="display:none;">
 
-<h2>💖 San Valentín 💖</h2>
+<div id="contador"></div>
 
-<div class="contador">
-Mi amor comenzó el 30/09/2024 💕
-<span class="tiempo" id="tiempo"></span>
+<div class="contenedor-texto">
+    <p id="texto"></p>
 </div>
 
-<div class="carta">
-    <span id="texto"></span><span class="cursor"></span>
+<!-- IMÁGENES INTERCALADAS -->
+<div class="galeria-intercalada">
+    
+    <div class="imagen izquierda">
+        <img src="foto1.jpg">
+    </div>
+
+    <div class="imagen derecha">
+        <img src="foto2.jpg">
+    </div>
+
+    <div class="imagen izquierda">
+        <img src="foto3.jpg">
+    </div>
+
+    <div class="imagen derecha">
+        <img src="foto4.jpg">
+    </div>
+
 </div>
 
-<div class="galeria">
-    <div class="imagen izquierda"><img src="foto1.jpg"></div>
-    <div class="imagen derecha"><img src="foto2.jpg"></div>
-    <div class="imagen izquierda"><img src="foto3.jpg"></div>
-    <div class="imagen derecha"><img src="foto4.jpg"></div>
+<section class="mensaje-final">
+    <p class="mensaje-brillo">
+        Te amo y te amaré en esta y en las otras vidas. 💖  
+        Te amo, mi niña. Feliz San Valentín.
+    </p>
+</section>
+
+<footer>
+    Con amor infinito 💘
+</footer>
+
 </div>
 
-<footer></footer>
-
-</div>
+<audio id="musica" src="musica.mp3"></audio>
 
 <script>
 
-function entrar(){
-    document.querySelector(".inicio").classList.add("oculto");
-    document.getElementById("musica").play();
-    escribirTexto();
-}
-
 /* CORAZONES */
-for(let i=0;i<30;i++){
-    let heart=document.createElement("div");
-    heart.className="corazon";
-    heart.innerHTML="❤";
+function crearCorazon(){
+    const heart=document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML="❤️";
     heart.style.left=Math.random()*100+"vw";
     heart.style.animationDuration=(3+Math.random()*5)+"s";
     heart.style.fontSize=(15+Math.random()*25)+"px";
     document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),8000);
 }
+setInterval(crearCorazon,300);
 
 /* CONTADOR */
-const fechaInicio = new Date("2024-09-30T00:00:00");
+const fechaInicio=new Date("2024-09-30T00:00:00");
 
 function actualizarContador(){
-    const ahora = new Date();
-    const diferencia = ahora - fechaInicio;
+    const ahora=new Date();
+    const diff=ahora-fechaInicio;
+    const dias=Math.floor(diff/(1000*60*60*24));
+    const horas=Math.floor((diff/(1000*60*60))%24);
+    const minutos=Math.floor((diff/(1000*60))%60);
+    const segundos=Math.floor((diff/1000)%60);
 
-    const dias = Math.floor(diferencia / (1000*60*60*24));
-    const horas = Math.floor((diferencia / (1000*60*60)) % 24);
-    const minutos = Math.floor((diferencia / (1000*60)) % 60);
-    const segundos = Math.floor((diferencia / 1000) % 60);
+    document.getElementById("contador").innerHTML=
+    dias+" días "+horas+" horas "+minutos+" minutos "+segundos+" segundos ❤️";
+}
+setInterval(actualizarContador,1000);
 
-    document.getElementById("tiempo").innerHTML =
-        dias + " días " +
-        horas + " horas " +
-        minutos + " minutos " +
-        segundos + " segundos 💖";
+/* TEXTO COMPLETO */
+const mensaje=`Desde ese día de julio, no me arrepiento de nada, ya que para mí es el momento de poder aceptar compartir mi vida contigo. Pasaron de ser días grises a días de arcoíris. No me arrepiento de nada lo vivido contigo. No me arrepiento de nada de lo cual haya dicho contigo. No me arrepiento de nada que haya hecho contigo. De hecho, cada cosa de la cual he vivido a tu lado ha sido totalmente una bendición y una fortuna muy grande el haberte encontrado.
+
+La verdad, estoy muy feliz. Muy feliz el día de hoy poder ser yo la persona la cual te pueda decir un te amo. Pueda hablarte de una manera cariñosa y decirte mi niña, porque sí, en serio, llegaste a alegrar mi vida. Llegaste a salvar mi vida. Llegaste con tu brillo de otro planeta, con tu forma de ser, del cual me vuelve loco, con tu forma de sentir, que totalmente es un regalo el hecho de que pueda yo ser lo que soy y ser testigo de esa manera tan hermosa de ser.
+
+En serio, me siento muy feliz, pero muy feliz de poder pasar un 14 de febrero más a tu lado. Este día de San Valentín te envío esta página que he hecho con mucho trabajo y con mucho amor para ti, mi niña hermosa.
+
+Tu programador, Samuel Carvache.
+
+Te amo con todo mi corazón. Voy a crecer más, mejorar más y construir todo lo que sueño a tu lado.
+
+Te amo, mi victoria, con todo mi corazón. Te adoro.`;
+
+
+let i=0;
+const textoElemento=document.getElementById("texto");
+
+function escribir(){
+    if(i<mensaje.length){
+        textoElemento.textContent+=mensaje.charAt(i);
+        i++;
+        setTimeout(escribir,30);
+    }else{
+        let contenido=textoElemento.innerHTML;
+        contenido=contenido.replace(/victoria/gi,
+        '<span class="brillo">Victoria</span>');
+        textoElemento.innerHTML=contenido;
+    }
 }
 
-setInterval(actualizarContador,1000);
-actualizarContador();
-
-/* TEXTO COMPLETO MÁQUINA DE ESCRIBIR */
-const mensaje = `Desde ese día de julio, no me arrepiento de nada, ya que para mí es el momento de poder aceptar compartir mi vida contigo. Pasaron de ser días grises a días de arcoíris. No me arrepiento de nada lo vivido contigo. No me arrepiento de nada de lo cual haya dicho contigo. No me arrepiento de nada que haya hecho contigo. De hecho, cada cosa de la cual he vivido a tu lado ha sido totalmente una bendición y una fortuna muy grande el haberte encontrado.
-
-La verdad, estoy muy feliz. Muy feliz el día de hoy poder ser yo la persona la cual te pueda decir un te amo. Pueda hablarte de una manera cariñosa y decirte mi niña, porque sí, en serio, llegaste a alegrar mi vida. Llegaste a salvar mi vida.
-
-Llegaste con tu brillo de otro planeta, con tu forma de ser, del cual me vuelve loco, con tu forma de sentir, que totalmente es un regalo el hecho de que pueda yo ser lo que soy. Pero me siento muy feliz de poder ser testigo de esa manera tan hermosa de ser.
-
-En serio, me siento muy feliz, pero muy feliz de poder pasar un 14 de febrero más a tu lado. Y este día de San Valentín te envío esta página que he hecho con mucho trabajo y con mucho amor para ti, mi niña hermosa.
-
-Tu programador, Samuel Camache ❤️
-Te amo, mi Victoria, con todo mi corazón.
-Te adoro.`;
-
-let i = 0;
-
-function escribirTexto(){
-    if(i < mensaje.length){
-        let contenido = mensaje.substring(0,i+1);
-        contenido = contenido.replace("Victoria","<span class='victoria'>Victoria</span>");
-        document.getElementById("texto").innerHTML = contenido;
-        i++;
-        setTimeout(escribirTexto,25);
-    }
+function entrar(){
+    document.getElementById("pantallaInicio").style.display="none";
+    document.getElementById("contenido").style.display="block";
+    document.getElementById("musica").play();
+    escribir();
 }
 
 </script>
 
 </body>
 </html>
-
-
-
-
